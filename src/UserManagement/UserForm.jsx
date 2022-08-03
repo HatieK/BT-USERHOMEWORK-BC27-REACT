@@ -77,6 +77,17 @@ export default class UserForm extends Component {
           `https://62b6eabe6999cce2e80a17ba.mockapi.io/api/users/${id}`,
           this.state.values
         );
+        this.setState({
+          values: {
+            id: "",
+            account: "",
+            name: "",
+            password: "",
+            email: "",
+            phone: "",
+            type: "",
+          },
+        });
         this.props.onSuccess();
       }
     } catch (error) {
@@ -165,8 +176,12 @@ export default class UserForm extends Component {
           />
         </div>
 
-        <button onClick={this.handleSubmit}>Register</button>
-        <button onClick={this.handleSubmitChange}>Update</button>
+        <button className="btn btn-success" onClick={this.handleSubmit}>
+          Register
+        </button>
+        <button className="btn btn-danger" onClick={this.handleSubmitChange}>
+          Update
+        </button>
       </form>
     );
   }
